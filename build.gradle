@@ -1,0 +1,40 @@
+buildscript {
+    ext {
+        jna_version = '4.2.2'
+        author = 'Not2EXceL'
+        name = 'Richmond Steele'
+        email = 'not2excel@gmail.com'
+
+        projectName = 'csgo-external-jvm'
+        projectDescription = 'Java based external cheat for CSGO'
+
+        artifact = 'csgoexternal'
+        artifactGroup = 'io.not2excel'
+        artifactVersion = '1.0.0'
+    }
+}
+
+version artifactVersion
+
+allprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'application'
+
+    group artifactGroup
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    mainClassName = "io.not2excel.csgo.CSGOExternal"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'net.java.dev.jna', name: 'jna', version: jna_version
+    compile group: 'net.java.dev.jna', name: 'jna-platform', version: jna_version
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.16.12'
+}
